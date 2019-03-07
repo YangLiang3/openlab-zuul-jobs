@@ -180,3 +180,12 @@
             branches: master
         - spark-integration-test-minikube-k8s:
             branches: master
+
+- project:
+    name: helm/charts
+    periodic:
+      jobs:
+        - helm-integration-test-kubeadm-k8s:
+            branches: master
+        - helm-integration-test-kubeadm-k8s-v1.10:
+            branches: master

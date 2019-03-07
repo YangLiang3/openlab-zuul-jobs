@@ -1099,3 +1099,23 @@
     override-checkout: branch-2.4
     vars:
       k8s_log_dir: '{{ ansible_user_dir }}/workspace/logs/kubernetes'
+
+- job:
+    name: helm-integration-test-kubeadm-k8s
+    parent: init-test
+    description: |
+      Run integration tests of helm charts with k8s cluster deployed by kubeadm
+    run: playbooks/helm-integration-test-kubeadm-k8s/run.yaml
+    vars:
+      chart_testing_version: v2.2.0
+
+- job:
+    name: helm-integration-test-kubeadm-k8s-v1.10
+    parent: init-test
+    description: |
+      Run integration tests of helm charts with v1.10 k8s cluster deployed by kubeadm
+    run: playbooks/helm-integration-test-kubeadm-k8s/run.yaml
+    vars:
+      chart_testing_version: v2.2.0
+      kubernetes_version: 1.10.2
+      docker_ce_version: 17.03
